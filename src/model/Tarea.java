@@ -2,13 +2,15 @@ package model;
 
 public class Tarea {
 	
+	private String nombre; 
 	private String descripcion; 
 	private boolean obligatoria; 
 	private int duracionMin;
 	
 	
-	public Tarea(String descripcion, boolean obligatoria, int duracionMin) {
+	public Tarea(String nombre, String descripcion, boolean obligatoria, int duracionMin) {
 		super();
+		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.obligatoria = obligatoria;
 		this.duracionMin = duracionMin;
@@ -17,6 +19,15 @@ public class Tarea {
 	public Tarea(){
 		super();
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}

@@ -30,6 +30,21 @@ public class Lista <T> implements Iterable<T> {
 		}
 		tamanio++;
 	}
+	
+	public Nodo<T> buscarNodoPorValor(T valor) {
+        Nodo<T> actual = nodoPrimero; // nodoPrimero es el primer nodo de tu lista
+
+        // Recorre la lista hasta encontrar el nodo con el valor deseado
+        while (actual != null) {
+            if (actual.getValorNodo().equals(valor)) {
+                return actual; // Devuelve el nodo si se encuentra el valor
+            }
+            actual = actual.getSiguienteNodo();
+        }
+
+        return null; // Retorna null si no se encuentra el valor en la lista
+    }
+
 
 	// Agregar al final de la lista
 	public void agregarfinal(T valorNodo) {

@@ -222,4 +222,98 @@ public class Restaurante {
 
 		return false;
 	}
+
+	public boolean buscarActividades(String actividad1, String actividad2) {
+		Nodo<Proceso> actual = listaProcesos.getNodoPrimero();
+
+		while (actual != null) {
+			Proceso proceso = (Proceso) actual.getValorNodo();
+				if(proceso.buscarActividades(actividad1, actividad2)){
+					return true;
+				}
+				actual = actual.getSiguienteNodo();
+			}
+		return false;
+	}
+
+	public ArrayList<String> traerInfoActividad(String actividad) {
+		Nodo<Proceso> actual = listaProcesos.getNodoPrimero();
+
+		while (actual != null) {
+			Proceso proceso = (Proceso) actual.getValorNodo();
+				if(proceso!=null){
+					return proceso.traerInfoActividad(actividad);
+				}
+				actual = actual.getSiguienteNodo();
+			}
+		return null;
+	}
+
+	public ArrayList<Tarea> obtenerTareas(String actividad) {
+		Nodo<Proceso> actual = listaProcesos.getNodoPrimero();
+
+		while (actual != null) {
+			Proceso proceso = (Proceso) actual.getValorNodo();
+				if(proceso!=null){
+					return proceso.traerTareas(actividad);
+				}
+				actual = actual.getSiguienteNodo();
+			}
+		return null;
+	}
+
+	public void intercambiarActividades(String actividad1, String actividad2) {
+		Nodo<Proceso> actual = listaProcesos.getNodoPrimero();
+
+		while (actual != null) {
+			Proceso proceso = (Proceso) actual.getValorNodo();
+				if(proceso!=null){
+					proceso.intercambiarActividades(actividad1, actividad2);
+				}
+				actual = actual.getSiguienteNodo();
+			}
+	}
+
+	public boolean intercambiarAtributos(String actividad1, String actividad2) {
+		Nodo<Proceso> actual = listaProcesos.getNodoPrimero();
+
+		while (actual != null) {
+			Proceso proceso = (Proceso) actual.getValorNodo();
+				if(proceso!=null){
+					return proceso.intercambiarAtributis(actividad1, actividad2);
+				}
+				actual = actual.getSiguienteNodo();
+			}
+		return false;
+	}
+
+	public ArrayList<String> obtenerPosiblesActividades() {
+	    ArrayList<String> listaActividades = new ArrayList<String>();
+	    Nodo<Proceso> actual = listaProcesos.getNodoPrimero();
+
+	    while (actual != null) {
+	        Proceso proceso = actual.getValorNodo();
+	        if (proceso != null) {
+	            listaActividades.addAll(proceso.traerActividades());
+	        }
+	        actual = actual.getSiguienteNodo();
+	    }
+	    return listaActividades;
+	}
+
+	public ArrayList<String> traerInfoActividad2(String actividad1) {
+		 ArrayList<String> info = new ArrayList<String>(5);
+		Nodo<Proceso> actual = listaProcesos.getNodoPrimero();
+
+		while (actual != null) {
+			Proceso proceso = (Proceso) actual.getValorNodo();
+				if(proceso!=null){
+					info.add(proceso.getNombre());
+					info.addAll(proceso.traerInfoActividad2(actividad1));
+				}
+				actual = actual.getSiguienteNodo();
+			}
+		return info;
+	}
+
 }

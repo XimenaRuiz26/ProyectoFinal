@@ -51,7 +51,7 @@ public class Cola <T> {
 	 * @return true si está vacía
 	 */
 	public boolean estaVacia() {
-		return nodoPrimero == null;
+		return nodoPrimero == null  && nodoUltimo == null;
 	}
 	
 	
